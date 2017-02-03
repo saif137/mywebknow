@@ -25,25 +25,18 @@ class au_com_theguardian_spider(scrapy.Spider):
         print(alltitles)
         items = []
         for index, link in enumerate(alltitles):
-            # item = MywebknowItem()
-            # item["title"] = link.xpath("./text()").extract()
-            # item["url"] = link.xpath("@href").extract()
-            # print(str(item["url"][0]))
-            # items.append(item)
             url = link.xpath("@href").extract()
-            yield{
-                'title':link.xpath("./text()").extract(),
-                'url':url
-            }
+            # yield{
+            #     'title':link.xpath("./text()").extract(),
+            #     'url':url
+            # }
             yield scrapy.Request(str(url[0]), callback=self.parsearticle)
         print("<<<<<\n\n\n")
-        #return items
 
     #Extracting articles
     def parsearticle(self, response):
         print("\n\n\n$$$$$")
         sel = Selector(response)
-        #Article heading
         article = sel.xpath('//article')
         print(article)
         items = []
@@ -55,6 +48,7 @@ class au_com_theguardian_spider(scrapy.Spider):
             abody = data.xpath('//div[contains(@class,"content__article-body from-content-api js-article__body")]/p/text()').extract()
             print(abody)
             yield{
+                'url': response.url,
                 'ahead':ahead,
                 'author':author,
                 'abody': abody

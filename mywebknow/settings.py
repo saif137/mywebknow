@@ -64,9 +64,23 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'mywebknow.pipelines.SomePipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'mywebknow.pipelines.MongoDBPipeline': 300,
+    'mywebknow.pipelines.MywebknowPipeline': 600
+}
+
+MONGODB_SERVER = "localhost"
+MONGODB_PORT = 27017
+MONGODB_DB = "mywebknow"
+MONGODB_COLLECTION = "articles"
+
+#MONGODB_SERVER = "sl-aus-syd-1-portal.3.dblayer.com"
+#MONGODB_PORT = 15439
+#MONGODB_DB = "mywebknow"
+#MONGODB_COLLECTION = "articles"
+#MONGODB_USER = "myuser"
+#MONGODB_PASS = "mypass"
+
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html

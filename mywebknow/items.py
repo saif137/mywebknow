@@ -16,11 +16,7 @@ class MywebknowItem(scrapy.Item):
     #headline = Field()
     title = Field()
     url = Field()
-    #pass
-
-
-class ArticleItem(scrapy.Item):
     ahead = Field()
-    autho = Field()
+    author = Field()
     abody = Field()
     #pass
