@@ -29,8 +29,9 @@ class au_com_theguardian_spider(scrapy.Spider):
         for index, link in enumerate(alltitles):
             #Extract the URL of each article on main page
             url = link.xpath("@href").extract()
-            #Call each article url for scraping
-            yield scrapy.Request(str(url[0]), callback=self.parsearticle)
+            if url <> "" :
+                #Call each article url for scraping
+                yield scrapy.Request(str(url[0]), callback=self.parsearticle)
 
     #Extracting articles
     def parsearticle(self, response):
