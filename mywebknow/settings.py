@@ -69,11 +69,13 @@ ITEM_PIPELINES = {
     'mywebknow.pipelines.MywebknowPipeline': 600
 }
 
+#Connection settings for local MongoDB instance
 MONGODB_SERVER = "localhost"
 MONGODB_PORT = 27017
 MONGODB_DB = "mywebknow"
 MONGODB_COLLECTION = "articles"
 
+#Connection settings for compose mongodb instance
 #MONGODB_SERVER = "sl-aus-syd-1-portal.3.dblayer.com"
 #MONGODB_PORT = 15439
 #MONGODB_DB = "mywebknow"

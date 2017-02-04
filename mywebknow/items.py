@@ -1,22 +1,24 @@
-# -*- coding: utf-8 -*-
-
-# Define here the models for your scraped items
-#
-# See documentation in:
-# http://doc.scrapy.org/en/latest/topics/items.html
-
+"""
+This file identifying the fields that we want to persist
+"""
 import scrapy
 from scrapy.item import Item, Field
 
 class MywebknowItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    #atext = Field()
-    #author = Field()
-    #headline = Field()
+    #Holds the title of the artile, however, it got redundant after finding the heading
     title = Field()
+    #Holds the url of the article
     url = Field()
+    #Holds the heading of the articles
     ahead = Field()
+    #Name of the author of the article
     author = Field()
+    #Body of the article
     abody = Field()
+    # Article date and time information
+    adt = Field()
+    # Article stand first information
+    asfi = Field()
+    # Article label
+    albl = Field()
     #pass
