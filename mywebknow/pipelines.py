@@ -31,20 +31,16 @@ class MongoDBPipeline(object):
             settings['MONGODB_SERVER'], #Server ip
             settings['MONGODB_PORT']    #Server port
         )
-        #Is connection established?
-        assert self.connection is not None
+        db = self.connection[settings['MONGODB_DB']] #Creating the connection
+        self.collection = db[settings['MONGODB_COLLECTION']] #Getting the collection
         try:
-            db = self.connection[settings['MONGODB_DB']] #Creating the connection
-            self.collection = db[settings['MONGODB_COLLECTION']] #Getting the collection
             self.collection.drop() #Droping the collection, we currently have limited cloud resources, to be improved
         except:
-            #Don't forget to close connection
-            self.connection.close()
             raise CloseSpider('Problem with MongDB connectivity')
 
     def close_spider(self, spider):
-        if self.connection is not None:
-            self.connection.close()
+        #Do something that needs to be done while closing spider
+        pass
 
     def process_item(self, item, spider):
         valid = True

@@ -18,5 +18,6 @@ Newspaper: Article scraping & curation http://newspaper.readthedocs.io/en/latest
 approximate and phonetic matching of strings https://pypi.python.org/pypi/jellyfish
 ISO country, subdivision, language, currency and script definitions and their translations https://pypi.python.org/pypi/pycountry
 Beautiful Soup: Library for screen-scraping https://www.crummy.com/software/BeautifulSoup/
+Loading tesing tool http://locust.io/
 
 

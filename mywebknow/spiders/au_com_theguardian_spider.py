@@ -53,13 +53,13 @@ class au_com_theguardian_spider(scrapy.Spider):
             #print(abody)
             #Article date and time information
             adt = data.xpath('//time/@datetime').extract()
-            print("-->adt<--"+str(adt))
+            #print("-->adt<--"+str(adt))
             #Article stand first information
             asfi = data.xpath('//div[contains(@class,"content__standfirst")]/p/text()').extract()
-            print("-->asfi<--"+str(asfi))
+            #print("-->asfi<--"+str(asfi))
             #Article label
             albl = data.xpath('//a[contains(@class,"content__section-label__link")]/text()').extract()
-            print("-->albl<--"+str(albl))
+            #print("-->albl<--"+str(albl))
 
             #Put the content in pipeline to get it stored in mongodb
             yield{
