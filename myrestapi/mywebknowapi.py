@@ -43,7 +43,7 @@ def alldata():
     try:
         uri = getdbclienturi()
         # Client to mongodb database
-        client = pymongo.MongoClient(uri)
+        client = pymongo.MongoClient(uri, ssl_cert_reqs = ssl.CERT_NONE)
         # Selecting the database
         db = client['mywebknow']
         # Selecting the collection
@@ -74,7 +74,7 @@ def finddata(value):
     try:
         uri = getdbclienturi()
         # Client to mongodb database
-        client = pymongo.MongoClient(uri)
+        client = pymongo.MongoClient(uri, ssl_cert_reqs = ssl.CERT_NONE)
         # Selecting the database
         db = client['mywebknow']
         # Selecting the collection
@@ -107,7 +107,7 @@ def findauthor(author):
     try:
         uri = getdbclienturi()
         # Client to mongodb database
-        client = pymongo.MongoClient(uri)
+        client = pymongo.MongoClient(uri, ssl_cert_reqs = ssl.CERT_NONE)
         # Selecting the database
         db = client['mywebknow']
         # Selecting the collection
@@ -140,7 +140,7 @@ def findlabel(label):
     try:
         uri = getdbclienturi()
         # Client to mongodb database
-        client = pymongo.MongoClient(uri)
+        client = pymongo.MongoClient(uri, ssl_cert_reqs = ssl.CERT_NONE)
         # Selecting the database
         db = client['mywebknow']
         # Selecting the collection
@@ -173,7 +173,7 @@ def finddatetime(datetimepart):
     try:
         uri = getdbclienturi()
         # Client to mongodb database
-        client = pymongo.MongoClient(uri)
+        client = pymongo.MongoClient(uri, ssl_cert_reqs = ssl.CERT_NONE)
         # Selecting the database
         db = client['mywebknow']
         # Selecting the collection
@@ -206,7 +206,7 @@ def findheadline(headline):
     try:
         uri = getdbclienturi()
         # Client to mongodb database
-        client = pymongo.MongoClient(uri)
+        client = pymongo.MongoClient(uri, ssl_cert_reqs = ssl.CERT_NONE)
         # Selecting the database
         db = client['mywebknow']
         # Selecting the collection
@@ -239,7 +239,7 @@ def findurl(url):
     try:
         uri = getdbclienturi()
         # Client to mongodb database
-        client = pymongo.MongoClient(uri)
+        client = pymongo.MongoClient(uri, ssl_cert_reqs = ssl.CERT_NONE)
         # Selecting the database
         db = client['mywebknow']
         # Selecting the collection
@@ -272,7 +272,7 @@ def findstandfirstinfo(sfi):
     try:
         uri = getdbclienturi()
         # Client to mongodb database
-        client = pymongo.MongoClient(uri)
+        client = pymongo.MongoClient(uri, ssl_cert_reqs = ssl.CERT_NONE)
         # Selecting the database
         db = client['mywebknow']
         # Selecting the collection
@@ -308,9 +308,9 @@ My custom function
 """
 def getdbclienturi():
     # URI to local mongodb database
-    uri = 'mongodb://localhost:27017'
+    #uri = 'mongodb://localhost:27017'
     #URI to compose mongodb database
-    #uri = 'mongodb://myuser:mypass@sl-aus-syd-1-portal.2.dblayer.com:15439/admin?ssl=true'
+    uri = 'mongodb://myuser:mypass@sl-aus-syd-1-portal.2.dblayer.com:15439/admin?ssl=true'
     return uri
 
 if __name__ == '__main__':

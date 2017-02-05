@@ -23,14 +23,15 @@ class MongoDBPipeline(object):
     def open_spider(self, spider):
 
         #Connecting to mongodb instance at componse
-        # uri = 'mongodb://myuser:mypass@sl-aus-syd-1-portal.2.dblayer.com:15439/admin?ssl=true' #URI for compose mongodb connection
-        # connection = pymongo.MongoClient(uri, ssl_cert_reqs = ssl.CERT_NONE) #Connecting to compose mongodb
+        uri = 'mongodb://myuser:mypass@sl-aus-syd-1-portal.2.dblayer.com:15439/admin?ssl=true' #URI for compose mongodb connection
+        self.connection = pymongo.MongoClient(uri, ssl_cert_reqs = ssl.CERT_NONE) #Connecting to compose mongodb
 
         #Connecting to local mongodb intance
-        self.connection = pymongo.MongoClient(
-            settings['MONGODB_SERVER'], #Server ip
-            settings['MONGODB_PORT']    #Server port
-        )
+        # self.connection = pymongo.MongoClient(
+        #     settings['MONGODB_SERVER'], #Server ip
+        #     settings['MONGODB_PORT']    #Server port
+        # )
+
         db = self.connection[settings['MONGODB_DB']] #Creating the connection
         self.collection = db[settings['MONGODB_COLLECTION']] #Getting the collection
         try:

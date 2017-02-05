@@ -8,15 +8,17 @@ import ssl
 import urllib2
 
 class mywebknowapi_test(unittest.TestCase):
-    #Is local database available?
-    def test_mongodb_con_local(self):
-        connection = pymongo.MongoClient(
-            'localhost',    #Must make it to read from config file
-            27017           #Must configure it to read from config file
-        )
-        db = connection['mywebknow']
-        collection = db['articles']
-        count = collection.count()
+
+    #Commented as final version was required on cloud based mongdb on compose
+    # #Is local database available?
+    # def test_mongodb_con_local(self):
+    #     connection = pymongo.MongoClient(
+    #         'localhost',    #Must make it to read from config file
+    #         27017           #Must configure it to read from config file
+    #     )
+    #     db = connection['mywebknow']
+    #     collection = db['articles']
+    #     count = collection.count()
 
     # Is cloud mongodb at compose database available?
     def test_mongodb_con_cloud_compose(self):
